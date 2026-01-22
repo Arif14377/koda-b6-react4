@@ -2,23 +2,45 @@ import logo from '../assets/img/logo.png'
 
 function Home() {
     return (
-        <Navbar />
+        <div className='px-10'>
+            <Navbar />
+            <Header />
+        </div>
     )
 }
 
 function Navbar() {
   return(
-    <div className="flex justify-between p-10">
+    <div className="flex justify-between py-10">
       <img src={logo} alt="logo" />
       <div className='flex items-center'>
         <ul className="flex items-center gap-6">
-          <li><a Link to="/">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li>About</li>
           <li>Contact Us</li>
         </ul>
       </div>
     </div>
   )
+}
+
+function Header() {
+    return (
+        <div className='flex justify-between gap-5 pt-20'>
+            <div>
+                <div className='flex items-center gap-2'>
+                    <hr className='w-2' />
+                    <p>Resdaurent</p>
+                </div>
+                <h1 className='w-120'>We Serve Delicious <span className='text-yellow-400'>Food</span></h1>
+                <p className='w-120 pb-5'>Keep heady when if you are go the infeastion rejistung fitems. Made donts are impressive intapoistiod while guiffine for</p>
+                <a href="#" className='bg-yellow-400 w-fit px-6 py-3'>Get Started</a>
+            </div>
+            <div>
+                <img src="https://placehold.co/500x400" alt="" />
+            </div>
+        </div>
+    )
 }
 
 
