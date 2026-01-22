@@ -5,6 +5,7 @@ function Home() {
         <div className='px-10'>
             <Navbar />
             <Header />
+            <AboutUsHome />
         </div>
     )
 }
@@ -38,6 +39,21 @@ function Header() {
             </div>
             <div>
                 <img src="https://placehold.co/500x400" alt="" />
+            </div>
+        </div>
+    )
+}
+
+function AboutUsHome() {
+    return (
+        <div className='flex gap-10 pt-20'>
+            <div>
+                <img src="https://placehold.co/500x500" alt="" />
+            </div>
+            <div className='flex flex-col justify-evenly'>
+                <h2>About <span className='text-yellow-400'>Us</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia omnis quibusdam aspernatur repellat facere illo aliquid, iure aut voluptas cumque quas fuga eligendi ab maiores totam! Corporis est maxime eos!</p>
+                <a href="#" className='py-2 px-5 w-fit border border-black rounded-full'>View</a>
             </div>
         </div>
     )
