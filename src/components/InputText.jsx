@@ -3,7 +3,7 @@ export function InputText(props) {
     return (
         <div className="flex flex-col">
             <label htmlFor="">{label}</label>
-            <input type="text" id={id} inputName={inputName} placeholder={placeholder} />
+            <input type="text" id={id} name={inputName} placeholder={placeholder} />
         </div>
     )
 }

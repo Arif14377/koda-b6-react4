@@ -76,12 +76,12 @@ const ContactUs = function() {
                     <tbody>
                     {
                         msg ? msg.map((el, idx) => {
-                            return (<tr className="[&>td]:border [&>td]:border-gray-300 [&>td]:p-2">
+                            return (
+                            <tr key={idx} className="[&>td]:border [&>td]:border-gray-300 [&>td]:p-2">
                                 <td>{idx+1}</td>
                                 <td>{el.name}</td>
                                 <td>{el.email}</td>
                                 <td>{el.message}</td>
-                                {console.log(el.name, el.email, el.message)}
                             </tr>)
                         }) : console.log("data kosong")
                     }
