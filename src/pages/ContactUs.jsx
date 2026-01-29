@@ -1,18 +1,25 @@
 import { useEffect, useState } from "react"
 import { Navbar } from "./Home"
 
-const ContactUs = function({formType}) {
+const ContactUs = function() {
+
     const [msg, setMsg] = useState([])
+    const [isLoad, setIsLoad] = useState(false)
 
     useEffect(()=>{
-        const pullData = JSON.parse(localStorage.getItem("data"))
-        if(pullData) {
-            setMsg(prev=>[...prev, ...pullData])
-            localStorage.setItem("message", JSON.stringify(msg))
-        } else {
-            localStorage.setItem("message", JSON.stringify(msg))
+        const saved = JSON.parse(localStorage.getItem("message"))
+        if (saved) {
+            setMsg(saved)
         }
-    },[msg])
+        setIsLoad(true)
+    }, [])
+
+    useEffect(() => {
+        if (!isLoad) {
+            return
+        }
+        localStorage.setItem("message", JSON.stringify(msg))
+    }, [msg])
 
     const onSubmit = function(event) {
         event.preventDefault()
@@ -52,7 +59,32 @@ const ContactUs = function({formType}) {
                             <input type="submit" value="Kirim" />
                     </form>
                 </div>
-            </div>        
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>No</td>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Message</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        msg ? msg.map((el, idx) => {
+                            return (<tr>
+                                <td>{idx+1}</td>
+                                <td>{el.name}</td>
+                                <td>{el.email}</td>
+                                <td>{el.message}</td>
+                                {console.log(el.name, el.email, el.message)}
+                            </tr>)
+                        }) : console.log("data kosong")
+                    }
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }
