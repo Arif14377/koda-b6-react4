@@ -13,7 +13,7 @@ const Home = function() {
     )
 }
 
-function Navbar() {
+export function Navbar() {
   return(
     <div className="flex justify-between py-5 px-10 bg-yellow-300">
       <img src={logo} alt="logo" />
