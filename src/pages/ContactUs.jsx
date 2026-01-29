@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Navbar } from "./Home"
+import { InputText } from "../components/InputText"
 
 const ContactUs = function() {
 
@@ -37,7 +38,7 @@ const ContactUs = function() {
     return (
         <>
             <Navbar/>
-            <div className="flex gap-15">
+            <div className="flex gap-15 [&>div]:w-1/2 px-8 py-15">
                 <div>
                     <p>WE'RE HERE TO HELP YOU</p>
                     <h1><span>Discuss</span>Your Chemical Solution Needs</h1>
@@ -55,15 +56,17 @@ const ContactUs = function() {
                     <form onSubmit={onSubmit}>
                             <InputText id={"name"} label={"Name"} inputName={"name"} placeholder={"Your name..."} />
                             <InputText id={"email"} label={"Email"} inputName={"email"} placeholder={"Your email address..."} />
-                            <textarea name="message" id="message" placeholder="Your message..."></textarea>
-                            <input type="submit" value="Kirim" />
+                            <div className="flex flex-col gap-4">
+                                <textarea className="border w-4/5 h-20" name="message" id="message" placeholder="Your message..."></textarea>
+                                <input className="w-fit px-4 py-2 bg-amber-400 rounded" type="submit" value="Kirim" />
+                            </div>
                     </form>
                 </div>
             </div>
-            <div>
-                <table>
+            <div className="flex justify-center px-8 py-15 w-full">
+                <table className="w-2/3">
                     <thead>
-                        <tr>
+                        <tr className="[&>td]:border [&>td]:border-gray-300 [&>td]:p-2 bg-orange-300">
                             <td>No</td>
                             <td>Name</td>
                             <td>Email</td>
@@ -73,7 +76,7 @@ const ContactUs = function() {
                     <tbody>
                     {
                         msg ? msg.map((el, idx) => {
-                            return (<tr>
+                            return (<tr className="[&>td]:border [&>td]:border-gray-300 [&>td]:p-2">
                                 <td>{idx+1}</td>
                                 <td>{el.name}</td>
                                 <td>{el.email}</td>
@@ -88,15 +91,5 @@ const ContactUs = function() {
         </>
     )
 }
-
-const InputText = function({id, label, inputName, placeholder}) {
-    return (
-        <div>
-            <label htmlFor={id}>{label}</label>
-            <input type="text" id={id} name={inputName} placeholder={placeholder} />
-        </div>
-    )
-}
-
 
 export default ContactUs
